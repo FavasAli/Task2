@@ -18,9 +18,9 @@ const LoginScreen = () => {
 
   useEffect(() => {
     console.log("useEffect usrinfo",userInfo)
-    if(userInfo){
-      navigate('/')
-    }
+      if(userInfo){
+        navigate('/')
+      }
   }, [userInfo,navigate]);
 
   const submitHandler = (e) => {

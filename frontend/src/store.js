@@ -2,12 +2,17 @@ import { createStore, combineReducers, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
 import { registerUserReducer, userLoginReducer } from "./reducers/userReducers";
 import { createTodoReducer, listTodosReducer } from "./reducers/todoReducers";
+import {addProductReduser, deleteProductReduser, viewProductReduser} from './reducers/productRedusers'
 
 const reducer = combineReducers({
   registerUser: registerUserReducer,
   userLogin: userLoginReducer,
   createTodo: createTodoReducer,
   listTodos: listTodosReducer,
+  addProduct:addProductReduser,
+  viewProduct:viewProductReduser,
+  deleteProduct:deleteProductReduser
+  
 });
 
 const userInfoLocalstorage = localStorage.getItem("userInfo")
@@ -22,7 +27,7 @@ const initialState = {
   userLogin: { userInfo: userInfoLocalstorage },
    listTodos: { todos: todoInfoLocalstorage },
 };
-console.log("userInfoStore", userInfoLocalstorage);
+// console.log("userInfoStore", userInfoLocalstorage);
 const middleware = [thunk];
 
 const store = createStore(

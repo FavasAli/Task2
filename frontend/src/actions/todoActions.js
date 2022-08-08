@@ -14,9 +14,7 @@ export const createTodo = (todo, date,completion) => async (dispatch, getState) 
       type: TODO_CREATION_REQUEST,
     });
 
-    const {
-      userLogin: { userInfo },
-    } = getState();
+    const {userLogin: { userInfo } } = getState();
 
     const config = {
       headers: {

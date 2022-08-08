@@ -1,28 +1,29 @@
 import mongoose from "mongoose";
 
-const dataSchema = mongoose.Schema(
-  {
-    user: {
-      type: mongoose.Schema.Types.ObjectId,
-      required: true,
-      ref: "User",
-    },
-    todo: {
-      type: String,
-      required: true,
-    },
-    date: {
-      type: Date,
-      required: true,
-    },
-    completion: {
-      type: Boolean,
-      required: true,
-    },
+const productSchema = mongoose.Schema({
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    required: true,
+    ref: "User",
   },
-  { timestamps: true }
-);
+  name: {
+    type: String,
+    required: true,
+  },
+  price: {
+    type: Number,
+    required: true,
+  },
+  quantity: {
+    type: Number,
+    required: true,
+  },
+  category: {
+    type: String,
+    required: true,
+  },
+});
 
-const Data=mongoose.model("Data",dataSchema)
+const Product = mongoose.model("Product", productSchema);
 
-export default Data
+export default Product;

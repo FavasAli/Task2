@@ -15,7 +15,7 @@ export const createTodoReducer = (state = {}, action) => {
       return { loading: false, todo: action.payload };
     case TODO_CREATION_FAIL:
       return { loading: false, error: action.payload };
-    default:
+    default: 
       return state;
   }
 };

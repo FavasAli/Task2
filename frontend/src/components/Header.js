@@ -16,8 +16,8 @@ const Header = () => {
   return (
     <Navbar bg="dark" expand="lg">
       <Container>
-        <Navbar.Brand style={{ color: "white" }} href="#home">
-          My-Todo
+        <Navbar.Brand style={{ color: "white" }} href="/">
+          My-Product
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         {!userInfo ? (

@@ -7,9 +7,10 @@ import {
   USER_LOGIN_FAIL,
   USER_LOGIN_RESET,
 } from "../constants/userConstants";
+import { VIEW_PRODUCT_RESET } from "../constants/productConstants";
 import axios from "axios";
 
-export const register = (name, email, password) => async (dispatch) => {
+export const register = (name, email, password,place) => async (dispatch) => {
   try {
     dispatch({
       type: USER_REGISTER_REQUEST,
@@ -20,8 +21,9 @@ export const register = (name, email, password) => async (dispatch) => {
       },
     };
     const { data } = await axios.post(
-      "/api/users/register",
-      { name, email, password },
+      "/api/user/register",
+      // "/api/users/register",
+      { name, email, password,place },
       config
     );
     console.log("first,data", data);
@@ -55,7 +57,8 @@ export const login = (email, password) => async (dispatch) => {
     };
 
     const { data } = await axios.post(
-      "/api/users/login",
+      "/api/user/login",
+      // "/api/users/login",
       { email, password },
       config
     );
@@ -83,4 +86,5 @@ export const login = (email, password) => async (dispatch) => {
 export const logout = () => (dispatch) => {
   localStorage.removeItem("userInfo");
   dispatch({ type: USER_LOGIN_RESET });
+  dispatch({ type: VIEW_PRODUCT_RESET });
 };

@@ -10,6 +10,7 @@ const RegisterScreen = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [place, setPlace] = useState("");
 
   const registerUser = useSelector((state) => state.registerUser);
   const { loading, error, userInfo } = registerUser;
@@ -29,7 +30,7 @@ const RegisterScreen = () => {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    dispatch(register(name, email, password));
+    dispatch(register(name, email, password,place));
   };
   return (
     <Container>
@@ -66,6 +67,16 @@ const RegisterScreen = () => {
                 placeholder="Enter your password"
                 type="password"
                 onChange={(e) => setPassword(e.target.value)}
+              ></Form.Control>
+            </Form.Group>
+
+            <Form.Group controlId="password">
+              <Form.Label>Place</Form.Label>
+              <Form.Control
+                value={place}
+                placeholder="Enter your place"
+                type="text"
+                onChange={(e) => setPlace(e.target.value)}
               ></Form.Control>
             </Form.Group>
             <Button type="submit" variant="primary">
